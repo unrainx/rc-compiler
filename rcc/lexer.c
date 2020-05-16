@@ -105,7 +105,7 @@ void next() {
 			token = TOKEN_NEQ;
 			getch();
 		} else {
-			error("! 暂不支持");
+			error("! not support");
 		}
 		return;
 	} else if (ch == '<') {
@@ -131,7 +131,7 @@ void next() {
 		if (ch == '.') {
 			getch();
 			if (ch != '.') {
-				error(".. 未知的语法");
+				error(".. spelling error");
 			} else {
 				token = TOKEN_ELLIPSIS;
 			}
@@ -191,7 +191,7 @@ void next() {
 	} else if (ch == EOF) {
 		token = TOKEN_EOF;
 	} else {
-		error("无法识别的字符");
+		error("unexpected character");
 		getch();
 	}
 }
@@ -242,7 +242,7 @@ void parse_comment() {
 				return;
 			}
 		} else {
-			error("找不到注释结束符");
+			error("unexpected character");
 			return;
 		}
 	} while (true);
@@ -351,7 +351,7 @@ void parse_string(char sep) {
 				c = '\\';
 				break;
 			default:
-				warning("非法转义字符");
+				warning("unexpected character");
 				break;
 			}
 
@@ -381,7 +381,7 @@ void code_coloring(int lex_state) {
 		} else if (token >= TOKEN_IDENT) {
 			SetConsoleTextAttribute(handle, FOREGROUND_INTENSITY);
 		} else if (token >= KEYWORD_CHAR) {
-			SetConsoleTextAttribute(handle, FOREGROUND_GREEN | FOREGROUND_INTENSITY);
+			SetConsoleTextAttribute(handle, FOREGROUND_BLUE | FOREGROUND_RED | FOREGROUND_INTENSITY);
 		} else if (token >= TOKEN_CONSTANT_INT) {
 			SetConsoleTextAttribute(handle, FOREGROUND_RED | FOREGROUND_GREEN);
 		} else {

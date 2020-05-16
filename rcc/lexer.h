@@ -30,10 +30,10 @@ enum Tag {
 	TOKEN_END, // }
 	TOKEN_SEMICOLON, // ;
 	TOKEN_COMMA, // ,
-	TOKEN_ELLIPSIS, // ... Ê¡ÂÔºÅ
-	TOKEN_EOF, // ±íÊ¾ÎÄ¼þ½áÊø
+	TOKEN_ELLIPSIS, // ... Ê¡ï¿½Ôºï¿½
+	TOKEN_EOF, // ï¿½ï¿½Ê¾ï¿½Ä¼ï¿½ï¿½ï¿½ï¿½ï¿½
 
-	// ³£Á¿
+	// ï¿½ï¿½ï¿½ï¿½
 	TOKEN_CONSTANT_INT,
 	TOKEN_CONSTANT_CHAR,
 	TOKEN_CONSTANT_STR,

@@ -11,7 +11,7 @@ int main(int argc, char ** argv) {
 
 	fin = fopen("C:\\Users\\Rain\\hello.c", "rb");
 	if (!fin) {
-		printf("无法打开文件");
+		printf("Error: Open file failed.\n");
 		exit(-1);
 	}
 
@@ -25,6 +25,5 @@ int main(int argc, char ** argv) {
 		code_coloring(LEX_NORMAL);
 
 	} while (token != TOKEN_EOF);
-	printf("\n 代码函数: \n");
 	return 0;
 }
