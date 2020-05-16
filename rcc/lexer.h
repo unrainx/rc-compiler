@@ -72,9 +72,6 @@ int tkvalue;
 char ch;
 FILE * fin;
 
-//extern String tkstr;
-//extern String sourcestr;
-
 void init_lex();
 
 void next();

@@ -49,7 +49,6 @@ void string_chcat(String * str, int ch) {
 	}
 }
 
-
 // implement Vector
 
 void vector_resize(Vector * vec, size_t size) {
@@ -106,10 +105,9 @@ int vector_find(Vector * vec, int key) {
 	return -1;
 }
 
-
 // implement Hash
 
-int elf_hash(char * key) {
+int hash(char * key) {
 	unsigned h = 0;
 	char * c = key;
 	while (*c != '\0') {
@@ -121,7 +119,7 @@ int elf_hash(char * key) {
 Word * word_reserve(Word * word) {
 	int key;
 	vector_push(&wordTable, word);
-	key = elf_hash(word->spelling);
+	key = hash(word->spelling);
 
 	while (wordHashTable[key] != NULL) {
 		wordHashTable[key] = wordHashTable[key]->next;
@@ -136,7 +134,7 @@ Word * word_reserve(Word * word) {
 
 Word * word_find(char * spelling) {
 	Word * word = NULL;
-	int key = elf_hash(spelling);
+	int key = hash(spelling);
 	for (Word * w = wordHashTable[key]; w != NULL; w = w->next) {
 		if (!strcmp(spelling, w->spelling)) {
 			int tag = w->tag;
@@ -154,7 +152,7 @@ Word * word_insert(char * spelling) {
 	char * end;
 	int length;
 	
-	key = elf_hash(spelling);
+	key = hash(spelling);
 	//printf("\ninsert: <%s: hash-%d>", spelling, key);
 	word = word_find(spelling);
 
@@ -240,17 +238,6 @@ void skip(int c) {
 	}
 	////get_token();
 }
-
-//char * get_token_str(int v) {
-//	if (v > wordTable.length) {
-//		return NULL;
-//	} else if (v >= TOKEN_CONSTANT_INT && v <= TOKEN_CONSTANT_STR) {
-//		// return *(sourcestr.data);
-//		return "fads";
-//	} else {
-//		return ((Word *)wordTable.data[v])->spelling;
-//	}
-//}
 
 void link_error(char * format, ...) {
 	va_list ap;

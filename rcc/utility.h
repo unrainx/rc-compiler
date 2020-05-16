@@ -68,9 +68,8 @@ int vector_find(Vector * vec, int key);
 Word * wordHashTable[MAX_SIZE];
 Vector wordTable;
 
-int elf_hash(char * key);
+int hash(char * key);
 
-// 运算符、关键字、常量直接放入单词表
 Word * word_reserve(Word * word);
 
 Word * word_find(char * spelling);
@@ -93,11 +92,7 @@ enum ErrorWorkStage {
 	ERROR_WORK_STAGE_LINK,
 };
 
-#define filename __FILE__
-#define _line __LINE__
 void handle_exception(int stage, int level, char * format, va_list ap);
-#undef filename
-#undef _line
 
 void warning(char * format, ...);
 
