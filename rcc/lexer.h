@@ -5,6 +5,12 @@
 
 #include "utility.h"
 
+int token;
+int line;
+int tkvalue;
+char ch;
+FILE * fin;
+
 enum Tag {
 
 	TOKEN_PLUS,
@@ -30,10 +36,10 @@ enum Tag {
 	TOKEN_END, // }
 	TOKEN_SEMICOLON, // ;
 	TOKEN_COMMA, // ,
-	TOKEN_ELLIPSIS, // ... ʡ�Ժ�
-	TOKEN_EOF, // ��ʾ�ļ�����
+	TOKEN_ELLIPSIS, // ... 
+	TOKEN_EOF, 
 
-	// ����
+
 	TOKEN_CONSTANT_INT,
 	TOKEN_CONSTANT_CHAR,
 	TOKEN_CONSTANT_STR,
@@ -65,12 +71,6 @@ enum LexerState {
 	LEX_NORMAL,
 	LEX_SEP,
 };
-
-int token;
-int line;
-int tkvalue;
-char ch;
-FILE * fin;
 
 void init_lex();
 
